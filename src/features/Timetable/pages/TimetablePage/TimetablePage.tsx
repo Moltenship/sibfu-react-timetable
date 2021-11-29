@@ -1,14 +1,20 @@
 import React, { useState, VFC } from 'react';
-import { Container, Stack, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
+import { Container, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Badge } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import { Loading } from '../../../../components';
 import { SortedDays } from '../../../../utils/enums/days';
 import { DayItem } from '../../components';
 import { useTimetable } from '../../queries';
+import { TimetableDate } from '../../../../models/timetableDate';
+import { DisplayWeeks, Week } from '../../../../utils/enums/week';
 
 /** Timetable page. */
 export const TimetablePage: VFC = () => {
-  const [week, setWeek] = useState(1);
+  const today = new Date();
+
+  const [week, setWeek] = useState(
+    TimetableDate.getWeekStatus(today),
+  );
 
   const { target } = useParams();
 
@@ -27,17 +33,50 @@ export const TimetablePage: VFC = () => {
   /**
    * @param weekType Whether week is odd or even.
    */
-  const weekClasses = (weekType: number): JSX.Element => (
+  const currentWeekBadge = (weekType: Week): JSX.Element => (
+    <>
+      {weekType === TimetableDate.getWeekStatus(today) && (
+        <Badge colorScheme="gray" marginLeft="1">Текущая</Badge>
+      )}
+    </>
+  );
+
+  const tabList = (
+    <TabList>
+      {
+        Object.keys(DisplayWeeks).map(key => (
+          <Tab key={key}>
+            {DisplayWeeks[Number(key) as Week]}
+            {currentWeekBadge(Number(key))}
+          </Tab>
+        ))
+      }
+    </TabList>
+  );
+
+  const weekClasses = (
     <Stack spacing="2">
       {data && (
         SortedDays.map(day => (
           <DayItem
             key={day}
             day={Number(day)}
-            classes={data.getClassesByDayAndWeek(day, weekType)}
+            classes={data.getClassesByDayAndWeek(day, week)}
           />
         )))}
     </Stack>
+  );
+
+  const tabPanels = (
+    <TabPanels>
+      {
+        Object.keys(DisplayWeeks).map(key => (
+          <TabPanel paddingInline="0" key={key}>
+            {weekClasses}
+          </TabPanel>
+        ))
+      }
+    </TabPanels>
   );
 
   if (isLoading) {
@@ -53,19 +92,9 @@ export const TimetablePage: VFC = () => {
       <div>{target}</div>
 
       <Container>
-        <Tabs onChange={handleTabsChange}>
-          <TabList>
-            <Tab>Чётная</Tab>
-            <Tab>Нечётная</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel paddingInline="0">
-              {weekClasses(week)}
-            </TabPanel>
-            <TabPanel paddingInline="0">
-              {weekClasses(week)}
-            </TabPanel>
-          </TabPanels>
+        <Tabs index={week - 1} onChange={handleTabsChange}>
+          {tabList}
+          {tabPanels}
         </Tabs>
       </Container>
     </div>

@@ -20,11 +20,11 @@ const ClassItemComponent: VFC<Props> = ({ classItem }) => (
       <Heading as="h3" size="xs" fontWeight="semibold">{classItem.subject}</Heading>
       <Stack fontSize="xs" direction="row" spacing="2">
         {classItem.type && (
-          <Badge textTransform="lowercase" colorScheme={ClassTypeColors[classItem.type]} fontSize="xs">
+          <Badge colorScheme={ClassTypeColors[classItem.type]} fontSize="xs">
             {classItem.type}
           </Badge>
         )}
-        <Badge textTransform="lowercase" colorScheme={SyncTypeColors[classItem.sync]} fontSize="xs">
+        <Badge colorScheme={SyncTypeColors[classItem.sync]} fontSize="xs">
           {classItem.sync}
         </Badge>
       </Stack>
