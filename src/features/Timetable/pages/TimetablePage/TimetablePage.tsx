@@ -1,83 +1,18 @@
-import React, { useState, VFC } from 'react';
-import { Container, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Badge } from '@chakra-ui/react';
+import React, { VFC } from 'react';
+import { Container, Stack } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import { Loading } from '../../../../components';
-import { SortedDays } from '../../../../utils/enums/days';
-import { DayItem } from '../../components';
+import { BaseTimetable, DayItem } from '../../components';
 import { useTimetable } from '../../queries';
-import { TimetableDate } from '../../../../models/timetableDate';
-import { DisplayWeeks, Week } from '../../../../utils/enums/week';
 
 /** Timetable page. */
 export const TimetablePage: VFC = () => {
   const today = new Date();
-
-  const [week, setWeek] = useState(
-    TimetableDate.getWeekStatus(today),
-  );
-
   const { target } = useParams();
 
   const { data, isLoading, error } = useTimetable(target, {
     enabled: Boolean(target),
   });
-
-  /**
-   * Handles tab change.
-   * @param index Tab index.
-   */
-  const handleTabsChange = (index: number): void => {
-    setWeek(index + 1);
-  };
-
-  /**
-   * @param weekType Whether week is odd or even.
-   */
-  const currentWeekBadge = (weekType: Week): JSX.Element => (
-    <>
-      {weekType === TimetableDate.getWeekStatus(today) && (
-        <Badge colorScheme="gray" marginLeft="1">Текущая</Badge>
-      )}
-    </>
-  );
-
-  const tabList = (
-    <TabList>
-      {
-        Object.keys(DisplayWeeks).map(key => (
-          <Tab key={key}>
-            {DisplayWeeks[Number(key) as Week]}
-            {currentWeekBadge(Number(key))}
-          </Tab>
-        ))
-      }
-    </TabList>
-  );
-
-  const weekClasses = (
-    <Stack spacing="2">
-      {data && (
-        SortedDays.map(day => (
-          <DayItem
-            key={day}
-            day={Number(day)}
-            classes={data.getClassesByDayAndWeek(day, week)}
-          />
-        )))}
-    </Stack>
-  );
-
-  const tabPanels = (
-    <TabPanels>
-      {
-        Object.keys(DisplayWeeks).map(key => (
-          <TabPanel paddingInline="0" key={key}>
-            {weekClasses}
-          </TabPanel>
-        ))
-      }
-    </TabPanels>
-  );
 
   if (isLoading) {
     return <Loading />;
@@ -92,10 +27,16 @@ export const TimetablePage: VFC = () => {
       <div>{target}</div>
 
       <Container>
-        <Tabs index={week - 1} onChange={handleTabsChange}>
-          {tabList}
-          {tabPanels}
-        </Tabs>
+        {data && (
+          <Stack spacing="4">
+            <DayItem
+              classes={data.getClassesByDate(today)}
+              date={today}
+              day={today.getDay()}
+            />
+            <BaseTimetable timetable={data} />
+          </Stack>
+        )}
       </Container>
     </div>
   );
