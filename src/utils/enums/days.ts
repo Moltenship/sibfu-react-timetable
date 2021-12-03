@@ -11,13 +11,13 @@ export enum Day {
 
 /**  Mapped days ready for displaying in Russian. */
 export const DisplayDays: Record<Day, string> = {
-  [Day.Sunday]: 'Воскресенье',
-  [Day.Monday]: 'Понедельник',
-  [Day.Tuesday]: 'Вторник',
-  [Day.Wednesday]: 'Среда',
-  [Day.Thursday]: 'Четверг',
-  [Day.Friday]: 'Пятница',
-  [Day.Saturday]: 'Суббота',
+  [Day.Sunday]: 'Воскресенье 🤠',
+  [Day.Monday]: 'Понедельник 😴',
+  [Day.Tuesday]: 'Вторник ☹️',
+  [Day.Wednesday]: 'Среда 😐',
+  [Day.Thursday]: 'Четверг 🍕',
+  [Day.Friday]: 'Пятница 🍺',
+  [Day.Saturday]: 'Суббота 💤',
 } as const;
 
 /** Sorted days according to Russian week days. */

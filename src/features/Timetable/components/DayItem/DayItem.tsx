@@ -25,9 +25,9 @@ const DayItemComponent: VFC<Props> = ({ classes, day, date }) => {
     <Box borderWidth="2px" padding="2" borderRadius="lg">
       <Heading as="h2" fontSize="xl" borderBottom="1px" borderBottomColor="gray.200" paddingBottom="2">
         <HStack>
-          <div>
+          <Text>
             {DisplayDays[day]}
-          </div>
+          </Text>
           {date && (
             <Text fontWeight="light">
               {`${date.getDate()} ${DisplayMonths[date.getMonth() as Month]}`}
