@@ -1,8 +1,4 @@
-/** Represents class sync type. */
-export enum SyncType {
-  Sync = 'синхронно',
-  Async = 'асинхронно',
-}
+import { SyncType } from 'sibfu-timetable-api';
 
 /** Colors object for each sync type. */
 export const SyncTypeColors = {

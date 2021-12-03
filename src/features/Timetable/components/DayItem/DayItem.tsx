@@ -1,9 +1,7 @@
 import React, { memo, VFC } from 'react';
 import { Box, Heading, HStack, Text } from '@chakra-ui/react';
-import { Class } from '../../../../models/class';
-import { Day, DisplayDays } from '../../../../utils/enums/days';
+import { Class, Day, DisplayDays, DisplayMonths, Month } from 'sibfu-timetable-api';
 import { ClassItem } from '..';
-import { DisplayMonths, Month } from '../../../../utils/enums/months';
 
 interface Props {
 

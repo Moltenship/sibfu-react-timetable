@@ -1,6 +1,5 @@
 import { QueryObserverOptions, useQuery, UseQueryResult } from 'react-query';
-import { fetchTimetable } from '../../../api/services/timetableService';
-import { Timetable } from '../../../models/timetable';
+import { fetchTimetable, Timetable } from 'sibfu-timetable-api';
 
 /** 10 min. */
 const DEFAULT_STALE_TIME = 10000 * 60;

@@ -1,10 +1,7 @@
 import React, { memo, useState, VFC } from 'react';
 import { Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Badge } from '@chakra-ui/react';
-import { SortedDays } from '../../../../utils/enums/days';
+import { DisplayWeeks, SortedDays, Timetable, TimetableDate, Week } from 'sibfu-timetable-api';
 import { DayItem } from '../../components';
-import { TimetableDate } from '../../../../models/timetableDate';
-import { DisplayWeeks, Week } from '../../../../utils/enums/week';
-import { Timetable } from '../../../../models/timetable';
 
 interface Props {
 
