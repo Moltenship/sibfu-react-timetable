@@ -40,7 +40,7 @@ const BaseTimetableComponent: VFC<Props> = ({ timetable }) => {
   );
 
   const tabList = (
-    <TabList position="sticky" top="1">
+    <TabList position="sticky" top="0" bg="white" padding="2">
       {
         Object.keys(DisplayWeeks).map(key => (
           <Tab color="orange" key={key} display="flex" flexWrap="wrap">
