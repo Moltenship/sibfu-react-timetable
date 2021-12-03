@@ -43,7 +43,7 @@ const BaseTimetableComponent: VFC<Props> = ({ timetable }) => {
     <TabList>
       {
         Object.keys(DisplayWeeks).map(key => (
-          <Tab key={key}>
+          <Tab key={key} display="flex" flexWrap="wrap">
             {DisplayWeeks[Number(key) as Week]}
             {currentWeekBadge(Number(key))}
           </Tab>
