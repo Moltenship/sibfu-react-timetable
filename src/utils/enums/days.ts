@@ -9,10 +9,8 @@ export enum Day {
   Saturday,
 }
 
-type DisplayDay = Record<Day, string>;
-
-/** Mapped days ready for displaying. */
-export const DisplayDays: DisplayDay = {
+/**  Mapped days ready for displaying in Russian. */
+export const DisplayDays: Record<Day, string> = {
   [Day.Sunday]: 'Воскресенье',
   [Day.Monday]: 'Понедельник',
   [Day.Tuesday]: 'Вторник',
@@ -22,5 +20,5 @@ export const DisplayDays: DisplayDay = {
   [Day.Saturday]: 'Суббота',
 } as const;
 
-/** Sorted days according to Russian weekends. */
+/** Sorted days according to Russian week days. */
 export const SortedDays = [1, 2, 3, 4, 5, 6, 0] as const;

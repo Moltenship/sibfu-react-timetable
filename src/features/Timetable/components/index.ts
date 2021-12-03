@@ -1,5 +1,3 @@
-import { BaseTimetable } from './BaseTimetable/BaseTimetable';
-import { DayItem } from './DayItem/DayItem';
-import { ClassItem } from './ClassItem/ClassItem';
-
-export { ClassItem, DayItem, BaseTimetable };
+export { BaseTimetable } from './BaseTimetable/BaseTimetable';
+export { DayItem } from './DayItem/DayItem';
+export { ClassItem } from './ClassItem/ClassItem';

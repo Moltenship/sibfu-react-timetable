@@ -1,3 +1,1 @@
-import { useTimetable } from './useTimetable';
-
-export { useTimetable };
+export { useTimetable } from './useTimetable';

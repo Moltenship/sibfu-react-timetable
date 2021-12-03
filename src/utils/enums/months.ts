@@ -14,7 +14,15 @@ export enum Month {
   December,
 }
 
-export const DisplayMonths = {
+/**
+ * Represents months with correct grammar.
+ *
+ * Examples:
+ * - `1 Февраля`
+ * - `24 Марта`
+ * - `31 Декабря`.
+ */
+export const DisplayMonths: Record<Month, string> = {
   [Month.January]: 'Января',
   [Month.February]: 'Февраля',
   [Month.March]: 'Марта',

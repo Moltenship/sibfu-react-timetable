@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Box } from '@chakra-ui/react';
 import { useRoutes } from 'react-router-dom';
 import { router } from './routes/RootRouter';
 
@@ -9,8 +10,8 @@ export const App: FC = () => {
   const routes = useRoutes(router(true));
 
   return (
-    <div>
+    <Box background="unset">
       {routes}
-    </div>
+    </Box>
   );
 };

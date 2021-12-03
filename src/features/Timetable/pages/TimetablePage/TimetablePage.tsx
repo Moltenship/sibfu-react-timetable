@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { Container, Stack } from '@chakra-ui/react';
+import { Box, Container, Stack } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import { Loading } from '../../../../components';
 import { BaseTimetable, DayItem } from '../../components';
@@ -14,30 +14,28 @@ export const TimetablePage: VFC = () => {
     enabled: Boolean(target),
   });
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
   if (error) {
     return <div>{error.message}</div>;
   }
 
   return (
-    <div>
+    <Box h="100vh">
       <div>{target}</div>
 
-      <Container>
-        {data && (
-          <Stack spacing="4">
-            <DayItem
-              classes={data.getClassesByDate(today)}
-              date={today}
-              day={today.getDay()}
-            />
-            <BaseTimetable timetable={data} />
-          </Stack>
-        )}
-      </Container>
-    </div>
+      <Loading isLoading={isLoading}>
+        <Container maxW="container.xl">
+          {data && (
+            <Stack spacing="4">
+              <DayItem
+                classes={data.getClassesByDate(today)}
+                date={today}
+                day={today.getDay()}
+              />
+              <BaseTimetable timetable={data} />
+            </Stack>
+          )}
+        </Container>
+      </Loading>
+    </Box>
   );
 };
