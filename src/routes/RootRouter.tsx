@@ -1,6 +1,5 @@
 import React from 'react';
 import { RouteObject } from 'react-router';
-import { Navigate } from 'react-router-dom';
 import { TimetablePage } from '../features/Timetable/pages';
 import { timetableRoutes } from '../features/Timetable/routes';
 
@@ -16,6 +15,6 @@ export const router = (isUserLoggedIn: boolean): RouteObject[] => [
     /**
      * TODO: change redirection path.
      */
-    element: <TimetablePage />,
+    element: <div />,
   },
 ];

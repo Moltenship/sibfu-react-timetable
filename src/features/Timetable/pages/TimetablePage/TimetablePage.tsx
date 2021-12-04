@@ -20,10 +20,8 @@ export const TimetablePage: VFC = () => {
 
   return (
     <Box h="100vh">
-      <div>{target}</div>
-
       <Loading isLoading={isLoading}>
-        <Container maxW="container.xl">
+        <Box>
           {data && (
             <Stack spacing="4">
               <DayItem
@@ -34,7 +32,7 @@ export const TimetablePage: VFC = () => {
               <BaseTimetable timetable={data} />
             </Stack>
           )}
-        </Container>
+        </Box>
       </Loading>
     </Box>
   );

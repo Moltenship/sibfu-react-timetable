@@ -1,5 +1,6 @@
-import { Icon } from '../theme/components/Icon';
-import { Loading } from './Loading/Loading';
-import { GuardPage } from './GuardPage/GuardPage';
-
-export { GuardPage, Loading, Icon };
+export { Icon } from '../theme/components/Icon';
+export { Loading } from './Loading/Loading';
+export { GuardPage } from './GuardPage/GuardPage';
+export { Header } from './Header/Header';
+export { ModalSearch } from './ModalSearch/ModalSearch';
+export { SearchResultItem } from './SearchResultItem/SearchResultItem';

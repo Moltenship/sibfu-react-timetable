@@ -1,0 +1,8 @@
+.input:focus {
+  border-color: var(--chakra-colors-orange-600) !important;
+}
+
+.input:focus,
+.input:hover {
+  background: var(--chakra-colors-white) !important;
+}
