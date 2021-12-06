@@ -1,5 +1,5 @@
-import React, { VFC } from 'react';
-import { Box, Container, Stack } from '@chakra-ui/react';
+import React, { useEffect, VFC } from 'react';
+import { Box, Stack } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import { Loading } from '../../../../components';
 import { BaseTimetable, DayItem } from '../../components';
@@ -13,6 +13,12 @@ export const TimetablePage: VFC = () => {
   const { data, isLoading, error } = useTimetable(target, {
     enabled: Boolean(target),
   });
+
+  useEffect(() => {
+    if (target) {
+      document.title = target;
+    }
+  }, [target]);
 
   if (error) {
     return <div>{error.message}</div>;
