@@ -8,7 +8,7 @@ export const Header: VFC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box my="4">
+      <Box py="4">
         <Button justifyContent="start" w="full" variant="ghost" color="grey" shadow="md" onClick={onOpen}>
           <Box mr="2">
             <Icon icon="carbon:search" />

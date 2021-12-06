@@ -1,5 +1,5 @@
 .input:focus {
-  border-color: var(--chakra-colors-orange-600) !important;
+  border-color: var(--chakra-colors-orange-300) !important;
 }
 
 .input:focus,

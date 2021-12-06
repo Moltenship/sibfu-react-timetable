@@ -4,3 +4,4 @@ export { GuardPage } from './GuardPage/GuardPage';
 export { Header } from './Header/Header';
 export { ModalSearch } from './ModalSearch/ModalSearch';
 export { SearchResultItem } from './SearchResultItem/SearchResultItem';
+export { Footer } from './Footer/Footer';

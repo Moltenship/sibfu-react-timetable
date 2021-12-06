@@ -65,7 +65,7 @@ const BaseTimetableComponent: VFC<Props> = ({ timetable }) => {
     <TabPanels>
       {
         Object.keys(DisplayWeeks).map(key => (
-          <TabPanel paddingInline="0" key={key}>
+          <TabPanel paddingInline="0" pb="0" key={key}>
             {weekClasses}
           </TabPanel>
         ))

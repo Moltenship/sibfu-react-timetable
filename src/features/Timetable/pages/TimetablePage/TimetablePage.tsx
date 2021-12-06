@@ -19,21 +19,19 @@ export const TimetablePage: VFC = () => {
   }
 
   return (
-    <Box h="100vh">
-      <Loading isLoading={isLoading}>
-        <Box>
-          {data && (
-            <Stack spacing="4">
-              <DayItem
-                classes={data.getClassesByDate(today)}
-                date={today}
-                day={today.getDay()}
-              />
-              <BaseTimetable timetable={data} />
-            </Stack>
-          )}
-        </Box>
-      </Loading>
-    </Box>
+    <Loading isLoading={isLoading}>
+      <Box>
+        {data && (
+          <Stack spacing="4">
+            <DayItem
+              classes={data.getClassesByDate(today)}
+              date={today}
+              day={today.getDay()}
+            />
+            <BaseTimetable timetable={data} />
+          </Stack>
+        )}
+      </Box>
+    </Loading>
   );
 };
