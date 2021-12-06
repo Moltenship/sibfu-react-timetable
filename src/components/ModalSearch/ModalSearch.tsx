@@ -17,7 +17,7 @@ interface Props {
 
 /** App header. */
 export const ModalSearch: VFC<Props> = ({ isOpen, onClose }) => {
-  const [value, setValue] = useState<string>('КИ');
+  const [value, setValue] = useState<string>('');
   const { data } = useTargets(value, { enabled: Boolean(value) });
 
   /** Handles input change. */

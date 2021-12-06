@@ -21,7 +21,7 @@ export const Header: VFC = () => {
           </Box>
         </Button>
       </Box>
-      <ModalSearch isOpen={isOpen} onClose={onClose} />
+      {isOpen && <ModalSearch isOpen={isOpen} onClose={onClose} />}
     </>
   );
 };
