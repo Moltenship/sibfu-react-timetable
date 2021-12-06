@@ -1,8 +1,8 @@
 import React, { memo, VFC } from 'react';
 import { Badge, Box, Heading, Link, Stack, Text } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
-import { Class } from '../../../../models/class';
 
+import { Class } from 'sibfu-timetable-api';
 import cls from './ClassItem.module.css';
 import { ClassTypeColors } from '../../../../utils/enums/classType';
 import { SyncTypeColors } from '../../../../utils/enums/syncType';
