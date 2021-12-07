@@ -2,10 +2,13 @@ import React, { VFC } from 'react';
 import { Box, Button, Text, Kbd, useDisclosure } from '@chakra-ui/react';
 import { Icon } from '@iconify/react';
 import { ModalSearch } from '..';
+import { useKeyCombination } from '../../hooks';
 
 /** App header. */
 export const Header: VFC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  useKeyCombination('KeyK', onOpen);
+
   return (
     <>
       <Box py="4">
