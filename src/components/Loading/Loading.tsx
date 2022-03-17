@@ -3,7 +3,7 @@ import { Box, CircularProgress } from '@chakra-ui/react';
 
 interface Props {
 
-  /** Is data loading flag. */
+  /** Is data loading. */
   isLoading: boolean;
 
   /** Children node. */
